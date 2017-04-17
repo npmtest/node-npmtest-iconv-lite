@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-iconv-lite/iconv-lite/lib/streams.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-iconv-lite/node_modules/iconv-lite/lib/streams.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-iconv-lite">npmtest-iconv-lite (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-iconv-lite/iconv-lite/lib/streams.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-iconv-lite/node_modules/iconv-lite/lib/streams.js</span></h1>
     <h2>
         
         Statements: <span class="metric">25.71% <small>(18 / 70)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-iconv-lite/iconv-lite/lib/</a> » streams.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-iconv-lite/node_modules/iconv-lite/lib/</a> &#187; streams.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -463,12 +465,12 @@ var Transform = require("stream").Transform;
 module.exports = function(iconv) {
     
     // Additional Public API.
-    iconv.encodeStream = <span class="fstat-no" title="function not covered">function encodeStream(encoding, options) {</span>
-<span class="cstat-no" title="statement not covered">        return new IconvLiteEncoderStream(iconv.getEncoder(encoding, options), options);</span>
+    iconv.encodeStream = <span class="fstat-no" title="function not covered" >function encodeStream(encoding, options) {</span>
+<span class="cstat-no" title="statement not covered" >        return new IconvLiteEncoderStream(iconv.getEncoder(encoding, options), options);</span>
     }
 &nbsp;
-    iconv.decodeStream = <span class="fstat-no" title="function not covered">function decodeStream(encoding, options) {</span>
-<span class="cstat-no" title="statement not covered">        return new IconvLiteDecoderStream(iconv.getDecoder(encoding, options), options);</span>
+    iconv.decodeStream = <span class="fstat-no" title="function not covered" >function decodeStream(encoding, options) {</span>
+<span class="cstat-no" title="statement not covered" >        return new IconvLiteDecoderStream(iconv.getDecoder(encoding, options), options);</span>
     }
 &nbsp;
     iconv.supportsStreams = true;
@@ -482,105 +484,104 @@ module.exports = function(iconv) {
 &nbsp;
 &nbsp;
 // == Encoder stream =======================================================
-<span class="fstat-no" title="function not covered">function IconvLiteEncoderStream(conv, options) {</span>
-<span class="cstat-no" title="statement not covered">    this.conv = conv;</span>
-<span class="cstat-no" title="statement not covered">    options = options || {};</span>
-<span class="cstat-no" title="statement not covered">    options.decodeStrings = false; </span>// We accept only strings, so we don't need to decode them.
-<span class="cstat-no" title="statement not covered">    Transform.call(this, options);</span>
+<span class="fstat-no" title="function not covered" >function IconvLiteEncoderStream(conv, options) {</span>
+<span class="cstat-no" title="statement not covered" >    this.conv = conv;</span>
+<span class="cstat-no" title="statement not covered" >    options = options || {};</span>
+<span class="cstat-no" title="statement not covered" >    options.decodeStrings = false; </span>// We accept only strings, so we don't need to decode them.
+<span class="cstat-no" title="statement not covered" >    Transform.call(this, options);</span>
 }
 &nbsp;
 IconvLiteEncoderStream.prototype = Object.create(Transform.prototype, {
     constructor: { value: IconvLiteEncoderStream }
 });
 &nbsp;
-IconvLiteEncoderStream.prototype._transform = <span class="fstat-no" title="function not covered">function(chunk, encoding, done) {</span>
-<span class="cstat-no" title="statement not covered">    if (typeof chunk != 'string')</span>
-<span class="cstat-no" title="statement not covered">        return done(new Error("Iconv encoding stream needs strings as its input."));</span>
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">        var res = this.conv.write(chunk);</span>
-<span class="cstat-no" title="statement not covered">        if (res &amp;&amp; res.length) <span class="cstat-no" title="statement not covered">this.push(res);</span></span>
-<span class="cstat-no" title="statement not covered">        done();</span>
+IconvLiteEncoderStream.prototype._transform = <span class="fstat-no" title="function not covered" >function(chunk, encoding, done) {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof chunk != 'string')</span>
+<span class="cstat-no" title="statement not covered" >        return done(new Error("Iconv encoding stream needs strings as its input."));</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >        var res = this.conv.write(chunk);</span>
+<span class="cstat-no" title="statement not covered" >        if (res &amp;&amp; res.length) <span class="cstat-no" title="statement not covered" >this.push(res);</span></span>
+<span class="cstat-no" title="statement not covered" >        done();</span>
     }
     catch (e) {
-<span class="cstat-no" title="statement not covered">        done(e);</span>
+<span class="cstat-no" title="statement not covered" >        done(e);</span>
     }
 }
 &nbsp;
-IconvLiteEncoderStream.prototype._flush = <span class="fstat-no" title="function not covered">function(done) {</span>
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">        var res = this.conv.end();</span>
-<span class="cstat-no" title="statement not covered">        if (res &amp;&amp; res.length) <span class="cstat-no" title="statement not covered">this.push(res);</span></span>
-<span class="cstat-no" title="statement not covered">        done();</span>
+IconvLiteEncoderStream.prototype._flush = <span class="fstat-no" title="function not covered" >function(done) {</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >        var res = this.conv.end();</span>
+<span class="cstat-no" title="statement not covered" >        if (res &amp;&amp; res.length) <span class="cstat-no" title="statement not covered" >this.push(res);</span></span>
+<span class="cstat-no" title="statement not covered" >        done();</span>
     }
     catch (e) {
-<span class="cstat-no" title="statement not covered">        done(e);</span>
+<span class="cstat-no" title="statement not covered" >        done(e);</span>
     }
 }
 &nbsp;
-IconvLiteEncoderStream.prototype.collect = <span class="fstat-no" title="function not covered">function(cb) {</span>
-<span class="cstat-no" title="statement not covered">    var chunks = [];</span>
-<span class="cstat-no" title="statement not covered">    this.on('error', cb);</span>
-<span class="cstat-no" title="statement not covered">    this.on('data', <span class="fstat-no" title="function not covered">function(chunk) {</span> <span class="cstat-no" title="statement not covered">chunks.push(chunk); </span>});</span>
-<span class="cstat-no" title="statement not covered">    this.on('end', <span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">        cb(null, Buffer.concat(chunks));</span>
+IconvLiteEncoderStream.prototype.collect = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >    var chunks = [];</span>
+<span class="cstat-no" title="statement not covered" >    this.on('error', cb);</span>
+<span class="cstat-no" title="statement not covered" >    this.on('data', <span class="fstat-no" title="function not covered" >function(chunk) {</span> <span class="cstat-no" title="statement not covered" >chunks.push(chunk); </span>});</span>
+<span class="cstat-no" title="statement not covered" >    this.on('end', <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        cb(null, Buffer.concat(chunks));</span>
     });
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
 }
 &nbsp;
 &nbsp;
 // == Decoder stream =======================================================
-<span class="fstat-no" title="function not covered">function IconvLiteDecoderStream(conv, options) {</span>
-<span class="cstat-no" title="statement not covered">    this.conv = conv;</span>
-<span class="cstat-no" title="statement not covered">    options = options || {};</span>
-<span class="cstat-no" title="statement not covered">    options.encoding = this.encoding = 'utf8'; </span>// We output strings.
-<span class="cstat-no" title="statement not covered">    Transform.call(this, options);</span>
+<span class="fstat-no" title="function not covered" >function IconvLiteDecoderStream(conv, options) {</span>
+<span class="cstat-no" title="statement not covered" >    this.conv = conv;</span>
+<span class="cstat-no" title="statement not covered" >    options = options || {};</span>
+<span class="cstat-no" title="statement not covered" >    options.encoding = this.encoding = 'utf8'; </span>// We output strings.
+<span class="cstat-no" title="statement not covered" >    Transform.call(this, options);</span>
 }
 &nbsp;
 IconvLiteDecoderStream.prototype = Object.create(Transform.prototype, {
     constructor: { value: IconvLiteDecoderStream }
 });
 &nbsp;
-IconvLiteDecoderStream.prototype._transform = <span class="fstat-no" title="function not covered">function(chunk, encoding, done) {</span>
-<span class="cstat-no" title="statement not covered">    if (!Buffer.isBuffer(chunk))</span>
-<span class="cstat-no" title="statement not covered">        return done(new Error("Iconv decoding stream needs buffers as its input."));</span>
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">        var res = this.conv.write(chunk);</span>
-<span class="cstat-no" title="statement not covered">        if (res &amp;&amp; res.length) <span class="cstat-no" title="statement not covered">this.push(res, this.encoding);</span></span>
-<span class="cstat-no" title="statement not covered">        done();</span>
+IconvLiteDecoderStream.prototype._transform = <span class="fstat-no" title="function not covered" >function(chunk, encoding, done) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!Buffer.isBuffer(chunk))</span>
+<span class="cstat-no" title="statement not covered" >        return done(new Error("Iconv decoding stream needs buffers as its input."));</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >        var res = this.conv.write(chunk);</span>
+<span class="cstat-no" title="statement not covered" >        if (res &amp;&amp; res.length) <span class="cstat-no" title="statement not covered" >this.push(res, this.encoding);</span></span>
+<span class="cstat-no" title="statement not covered" >        done();</span>
     }
     catch (e) {
-<span class="cstat-no" title="statement not covered">        done(e);</span>
+<span class="cstat-no" title="statement not covered" >        done(e);</span>
     }
 }
 &nbsp;
-IconvLiteDecoderStream.prototype._flush = <span class="fstat-no" title="function not covered">function(done) {</span>
-<span class="cstat-no" title="statement not covered">    try {</span>
-<span class="cstat-no" title="statement not covered">        var res = this.conv.end();</span>
-<span class="cstat-no" title="statement not covered">        if (res &amp;&amp; res.length) <span class="cstat-no" title="statement not covered">this.push(res, this.encoding);                </span></span>
-<span class="cstat-no" title="statement not covered">        done();</span>
+IconvLiteDecoderStream.prototype._flush = <span class="fstat-no" title="function not covered" >function(done) {</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >        var res = this.conv.end();</span>
+<span class="cstat-no" title="statement not covered" >        if (res &amp;&amp; res.length) <span class="cstat-no" title="statement not covered" >this.push(res, this.encoding);                </span></span>
+<span class="cstat-no" title="statement not covered" >        done();</span>
     }
     catch (e) {
-<span class="cstat-no" title="statement not covered">        done(e);</span>
+<span class="cstat-no" title="statement not covered" >        done(e);</span>
     }
 }
 &nbsp;
-IconvLiteDecoderStream.prototype.collect = <span class="fstat-no" title="function not covered">function(cb) {</span>
-<span class="cstat-no" title="statement not covered">    var res = '';</span>
-<span class="cstat-no" title="statement not covered">    this.on('error', cb);</span>
-<span class="cstat-no" title="statement not covered">    this.on('data', <span class="fstat-no" title="function not covered">function(chunk) {</span> <span class="cstat-no" title="statement not covered">res += chunk; </span>});</span>
-<span class="cstat-no" title="statement not covered">    this.on('end', <span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">        cb(null, res);</span>
+IconvLiteDecoderStream.prototype.collect = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >    var res = '';</span>
+<span class="cstat-no" title="statement not covered" >    this.on('error', cb);</span>
+<span class="cstat-no" title="statement not covered" >    this.on('data', <span class="fstat-no" title="function not covered" >function(chunk) {</span> <span class="cstat-no" title="statement not covered" >res += chunk; </span>});</span>
+<span class="cstat-no" title="statement not covered" >    this.on('end', <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        cb(null, res);</span>
     });
-<span class="cstat-no" title="statement not covered">    return this;</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
 }
 &nbsp;
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 09:00:40 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Mon Apr 17 2017 16:42:05 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
