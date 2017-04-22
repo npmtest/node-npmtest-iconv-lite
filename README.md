@@ -1,4 +1,7 @@
-# test coverage for  [iconv-lite (v0.4.15)](https://github.com/ashtuchkin/iconv-lite)  [![npm package](https://img.shields.io/npm/v/npmtest-iconv-lite.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-iconv-lite) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-iconv-lite.svg)](https://travis-ci.org/npmtest/node-npmtest-iconv-lite)
+# npmtest-iconv-lite
+
+#### basic test-coverage for  [iconv-lite (v0.4.15)](https://github.com/ashtuchkin/iconv-lite)  [![npm package](https://img.shields.io/npm/v/npmtest-iconv-lite.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-iconv-lite) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-iconv-lite.svg)](https://travis-ci.org/npmtest/node-npmtest-iconv-lite)
+
 #### Convert character encodings in pure javascript.
 
 [![NPM](https://nodei.co/npm/iconv-lite.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/iconv-lite)
@@ -138,7 +141,8 @@
         "test": "mocha --reporter spec --grep ."
     },
     "typings": "./lib/index.d.ts",
-    "version": "0.4.15"
+    "version": "0.4.15",
+    "bin": {}
 }
 ```
 
